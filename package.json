@@ -1,0 +1,115 @@
+{
+  "name": "agent-ops-claude-code-codex",
+  "displayName": "Agent Ops — Claude Code & Codex",
+  "description": "Paste-ready review prompts, CLAUDE.md rules, and task briefs for reliable AI coding-agent workflows.",
+  "version": "0.1.0",
+  "publisher": "lifestep",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other",
+    "AI"
+  ],
+  "keywords": [
+    "claude code",
+    "codex",
+    "ai agents",
+    "code review",
+    "prompts",
+    "CLAUDE.md",
+    "AGENTS.md"
+  ],
+  "galleryBanner": {
+    "color": "#0B1F33",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onCommand:agentOps.insertReviewPrompt",
+    "onCommand:agentOps.insertClaudeMdPattern",
+    "onCommand:agentOps.newTaskBrief",
+    "onCommand:agentOps.getFullKit"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "agentOps.insertReviewPrompt",
+        "title": "Insert Adversarial Review Prompt",
+        "category": "Agent Ops"
+      },
+      {
+        "command": "agentOps.insertClaudeMdPattern",
+        "title": "Insert CLAUDE.md Pattern",
+        "category": "Agent Ops"
+      },
+      {
+        "command": "agentOps.newTaskBrief",
+        "title": "Insert New Task Brief",
+        "category": "Agent Ops"
+      },
+      {
+        "command": "agentOps.getFullKit",
+        "title": "Get the Complete Agent Ops Kit",
+        "category": "Agent Ops"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "agentOps.gettingStarted",
+        "title": "Get Started with Agent Ops",
+        "description": "Give Claude Code, Codex, and other coding agents tighter instructions and evidence-driven review gates.",
+        "steps": [
+          {
+            "id": "agentOps.gettingStarted.review",
+            "title": "Insert an adversarial review prompt",
+            "description": "Run [Insert Adversarial Review Prompt](command:agentOps.insertReviewPrompt) and choose a focused final gate. Browse the free [AI Code Review Prompts](https://github.com/soul-sol/ai-code-review-prompts) repository.",
+            "media": {
+              "markdown": "media/review.md"
+            }
+          },
+          {
+            "id": "agentOps.gettingStarted.rules",
+            "title": "Add an operating rule",
+            "description": "Run [Insert CLAUDE.md Pattern](command:agentOps.insertClaudeMdPattern) to add one battle-tested rule. Explore [CLAUDE.md Patterns](https://github.com/soul-sol/claude-md-patterns) and [Agent Watch](https://github.com/soul-sol/agent-watch).",
+            "media": {
+              "markdown": "media/patterns.md"
+            }
+          },
+          {
+            "id": "agentOps.gettingStarted.brief",
+            "title": "Brief an agent, then go deeper",
+            "description": "Run [Insert New Task Brief](command:agentOps.newTaskBrief) for a scoped handoff, or [open the Complete Agent Ops Kit](command:agentOps.getFullKit) for the paid collection.",
+            "media": {
+              "markdown": "media/task-brief.md"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "file:vendor/typescript-5.9.3.tgz"
+  },
+  "optionalDependencies": {
+    "@vscode/vsce": "^3.6.0"
+  },
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soul-sol/vscode-agent-ops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soul-sol/vscode-agent-ops/issues"
+  },
+  "homepage": "https://github.com/soul-sol/vscode-agent-ops"
+}
