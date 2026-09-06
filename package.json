@@ -1,26 +1,40 @@
 {
   "name": "agent-ops-claude-code-codex",
-  "displayName": "Agent Ops — Claude Code & Codex",
-  "description": "Paste-ready review prompts, CLAUDE.md rules, and task briefs for reliable AI coding-agent workflows.",
-  "version": "0.1.0",
+  "displayName": "Agent Ops — Claude Code & Codex Review Prompts",
+  "description": "Paste-ready review prompts, agent rules, and task briefs for Claude Code, Codex, Cursor, and other coding agents.",
+  "version": "0.2.0",
   "publisher": "lifestep",
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
+    "AI",
     "Snippets",
-    "Other",
-    "AI"
+    "Other"
   ],
   "keywords": [
     "claude code",
+    "claude",
     "codex",
+    "cursor",
+    "coding agent",
+    "ai coding",
     "ai agents",
+    "ai code review",
     "code review",
-    "prompts",
-    "CLAUDE.md",
-    "AGENTS.md"
+    "code review prompt",
+    "code quality",
+    "claude.md",
+    "agents.md",
+    "agent rules",
+    "agent prompt",
+    "agent workflow",
+    "prompt",
+    "prompt engineering",
+    "llm",
+    "adversarial review",
+    "task brief"
   ],
   "galleryBanner": {
     "color": "#0B1F33",
@@ -65,7 +79,7 @@
           {
             "id": "agentOps.gettingStarted.review",
             "title": "Insert an adversarial review prompt",
-            "description": "Run [Insert Adversarial Review Prompt](command:agentOps.insertReviewPrompt) and choose a focused final gate. Browse the free [AI Code Review Prompts](https://github.com/soul-sol/ai-code-review-prompts) repository.",
+            "description": "Run [Insert Adversarial Review Prompt](command:agentOps.insertReviewPrompt) and choose one of ten focused final gates. Browse the free [AI Code Review Prompts](https://github.com/soul-sol/ai-code-review-prompts) repository.",
             "media": {
               "markdown": "media/review.md"
             }
@@ -73,7 +87,7 @@
           {
             "id": "agentOps.gettingStarted.rules",
             "title": "Add an operating rule",
-            "description": "Run [Insert CLAUDE.md Pattern](command:agentOps.insertClaudeMdPattern) to add one battle-tested rule. Explore [CLAUDE.md Patterns](https://github.com/soul-sol/claude-md-patterns) and [Agent Watch](https://github.com/soul-sol/agent-watch).",
+            "description": "Run [Insert CLAUDE.md Pattern](command:agentOps.insertClaudeMdPattern) to add one of twelve battle-tested rules. Explore [CLAUDE.md Patterns](https://github.com/soul-sol/claude-md-patterns) and [Agent Watch](https://github.com/soul-sol/agent-watch).",
             "media": {
               "markdown": "media/patterns.md"
             }
@@ -98,7 +112,7 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
-    "typescript": "file:vendor/typescript-5.9.3.tgz"
+    "typescript": "^5.9.3"
   },
   "optionalDependencies": {
     "@vscode/vsce": "^3.6.0"

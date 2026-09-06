@@ -25,5 +25,40 @@ export const CLAUDE_MD_PATTERNS: readonly InsertablePrompt[] = [
     label: "Reassign, not retry",
     description: "Prevent identical failed worker loops",
     body: `Track each <TASK_ID> attempt by worker, failure signature, changed variable, and result. Allow one same-worker retry only when a decision-relevant input changes, such as scope, source files, verification command, observed evidence, or an invalid assumption. Never repeat an identical task/context/command/worker combination. After the same failure twice, stop that worker, mark REASSIGN_REQUIRED, and assign a different eligible worker with prior evidence and unchanged acceptance criteria. Reassign immediately for worker-specific quota, authentication, tool, permission, or availability failures. If no eligible executor remains, report the external blocker instead of retrying.`
+  },
+  {
+    label: "Per-tool completion markers",
+    description: "Judge each agent by its own completion signal",
+    body: `Completion is judged per tool, never by one pool-wide rule. For each agent CLI in use, record its completion marker—the unambiguous line, event, or exit signature printed only on normal completion—in a table before dispatching parallel work. Classify runs as RUNNING, DONE, FAILED, or STALL (process alive or dead while the work story disagrees). A missing marker means UNKNOWN, not failed: read the output body for an actual conclusion before judging. Warning strings in logs are informational unless the exit code is nonzero, and log line count is never a signal—a long single-line output produces a short file. Never report a batch as complete until every result body has been read.`
+  },
+  {
+    label: "Probe before believing 'can't'",
+    description: "Test a claimed inability once, cheaply",
+    body: `Treat an agent-reported inability—"no permission in this session", "network unavailable", "tool not installed"—as a claim, not a fact. Before propagating it or deferring work, test it once with the cheapest possible probe in the same session: a trivial command, a file touch, a connectivity check. If the probe succeeds, the claim is false—proceed with the original work. If it fails, classify the failure layer precisely (network blocked, dependency missing, credentials invalid, permission denied), because tools tend to report the most plausible downstream symptom instead of the actual cause. Never carry an unverified inability forward into the next cycle; every repetition must cite the probe that proved it.`
+  },
+  {
+    label: "Pin the success marker",
+    description: "One unambiguous line decides deploy success",
+    body: `Every deploy pipeline prints exactly one success marker—a single unambiguous line emitted only after the final post-switch gate passes—and success is judged solely by that marker. Health-check and verification lines from intermediate stages, and especially from auto-rollback paths, describe their own stage, not the release: a rollback that verifies itself still means the deploy failed. Never grep a deploy log for reassurance substrings like "passed". After every deploy, independently confirm the live state from the running system: which release path is actually active, and a request served by it. If the marker is absent, the deploy failed, no matter how healthy the log reads.`
+  },
+  {
+    label: "Scrub before publishing",
+    description: "Public output gets a deny-list review, every time",
+    body: `Publishing is a transformation, never a copy. Anything leaving the repository for a public surface—a page, post, image, README, or comment—is reviewed against a deny list immediately before publication: private IPs, hostnames, and ports; credentials and personal paths; internal metrics such as revenue, quotas, and costs; infrastructure names; draft notes and backup files. The artifact's language must match its intended audience. Backups never live inside the published location. After publishing, re-fetch the live artifact and run the same deny list against the served bytes, and confirm sensitive paths return not-found. If any check fails, unpublish first and investigate second.`
+  },
+  {
+    label: "Guard the rules file",
+    description: "Treat CLAUDE.md/AGENTS.md as production config",
+    body: `The rules file is production configuration. Check its byte size against the agent runtime's combine or truncation limit—rules past the limit are silently unread, not merely ignored—and verify the runtime path resolves to the file actually being edited. After each verified edit, record the file's hash and re-check it after any session that touched files; a shrunken file means rules evaporated inside a "successful" session. Phrase every critical rule as a checkable instruction, and verify enforcement with a fresh read-only agent process reciting the critical rules—correct file contents prove nothing about what the runtime loaded. A rule that exists only in the file, with no execution path that applies it, is documentation.`
+  },
+  {
+    label: "Unverified is not failed",
+    description: "Retries require idempotency guards",
+    body: `For any action with side effects, define its result states before writing the retry policy, and distinguish FAILED (the action did not happen) from UNVERIFIED (the action may have happened; verification could not judge). UNVERIFIED never triggers an automatic retry—re-resolve it through an independent channel, or a duplicate action goes out. Every retryable action carries an idempotency guard that detects an already-performed action before performing it again, checked before the action, with a per-item attempt cap and terminal states that leave the queue. Concurrent runs must not both act. When automating over an unreliable interface, build the guard first: it is the prerequisite for retries, not an enhancement.`
+  },
+  {
+    label: "No fabricated specifics",
+    description: "Numbers and quotes come from records only",
+    body: `When writing anything factual—reports, posts, release notes, comments—use numbers, log phrases, file names, and quotes only if they exist in a record you can cite: a log, ledger, or note written before the writing. If the record does not contain the specific figure, describe the phenomenon without inventing precision—"for a long stretch" instead of an imagined count. To write about a new incident, record it in the log first and cite that record; never write the piece and backfill the evidence, because that ordering is what separates documentation from fiction. When uncertain, generalize or ask. Fabricated precision destroys more trust than honest vagueness, and once discovered it is indistinguishable from lying.`
   }
 ];
