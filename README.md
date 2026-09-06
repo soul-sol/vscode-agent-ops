@@ -4,6 +4,16 @@ Paste-ready AI code review prompts, `CLAUDE.md` / `AGENTS.md` operating rules, a
 
 Every prompt and rule here comes from a real agent-ops failure: a worker that reported success while nothing was implemented, a deploy that rolled back while logging "health checks passed", a rules file that was silently never loaded. The fix in each case was one short, checkable instruction — so that is what this extension inserts.
 
+## Install
+
+Not on the Marketplace yet. Grab the `.vsix` from the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest) and install it:
+
+```
+code --install-extension agent-ops-claude-code-codex-0.2.0.vsix
+```
+
+Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file. Cursor, Windsurf, and VSCodium take the same file.
+
 ## What it inserts
 
 Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and type **Agent Ops**.
