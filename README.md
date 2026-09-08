@@ -52,7 +52,7 @@ If no text editor is open, insertion commands create a new untitled Markdown doc
 4. **Shell & CI exit codes** — silent-green pipelines and portability traps
 5. **Agent output verification** — audit a worker's "done" against its brief
 6. **Deploy log & success markers** — rollbacks that read as successes
-7. **Worker completion & stalls** — judge parallel agents by per-tool completion markers
+7. **Worker completion & stalls** — judge parallel agents by exit code and result body
 8. **Rules-file enforcement** — prove `CLAUDE.md`/`AGENTS.md` rules load and bind
 9. **Pre-publication leak review** — scrub public output for internal data
 10. **Retry & idempotency safety** — failed verification must not double-fire actions

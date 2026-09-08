@@ -63,10 +63,10 @@ For each finding report: SEVERITY (P0 false success, P1 ambiguous marker, P2 obs
   },
   {
     label: "Worker completion & stalls",
-    description: "Judge parallel agent runs by per-tool markers, not exit codes",
+    description: "Judge parallel agent runs by exit code and result body",
     body: `Audit <WORKER_RUNS> (logs, exit codes, outputs) against <TASK_BRIEFS> for a pool of heterogeneous coding agents. Assume at least one run exited cleanly without completing its task, and at least one completed run looks stalled.
 
-Classify each run as RUNNING, DONE, FAILED, or STALL (the process story and the work story disagree). Decide completion with the marker of that specific tool—a line, event, or exit signature printed only on normal completion—and never generalize one tool's marker to another. A missing marker means UNKNOWN, not FAILED: read the output body for an actual conclusion before judging. Warning strings inside logs are informational unless the exit code is nonzero, and log line count is never a signal—a long single-line output produces a short file. Do not mark the batch complete until every run's result body has been read.
+Classify each run as RUNNING, DONE, FAILED, or STALL. Decide completion from the exit code and the result body: a nonzero exit is FAILED; an exit of 0 is a completion candidate whose result body must be read before it is accepted, because a worker can exit cleanly having only asked a question. Treat any tool-specific completion marker as supplementary diagnostic evidence that does not change the disposition, and never require one tool's marker from another—that is what turns healthy runs into false stalls. Reserve STALL for runs whose outcome cannot be established at all (no pid record, no log, no recorded exit code). Warning strings inside logs are informational unless the exit code is nonzero, and log line count is never a signal—a long single-line output produces a short file. Do not mark the batch complete until every run's result body has been read.
 
 Report per run: state, the evidence line, and any unread or ambiguous output. Then give a batch verdict and separate runs needing reassignment from runs needing only a re-read. A no-findings result must include the marker table used and the classification of every run.`
   },

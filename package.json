@@ -2,7 +2,7 @@
   "name": "agent-ops-claude-code-codex",
   "displayName": "Agent Ops — Claude Code & Codex Review Prompts",
   "description": "Paste-ready review prompts, agent rules, and task briefs for Claude Code, Codex, Cursor, and other coding agents.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "lifestep",
   "license": "MIT",
   "engines": {
