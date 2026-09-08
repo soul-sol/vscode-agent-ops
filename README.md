@@ -9,7 +9,7 @@ Every prompt and rule here comes from a real agent-ops failure: a worker that re
 Not on the Marketplace yet. Grab the `.vsix` from the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest) and install it:
 
 ```
-code --install-extension agent-ops-claude-code-codex-0.2.0.vsix
+code --install-extension agent-ops-claude-code-codex-0.2.1.vsix
 ```
 
 Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file. Cursor, Windsurf, and VSCodium take the same file.
