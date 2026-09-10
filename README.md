@@ -64,7 +64,7 @@ If no text editor is open, insertion commands create a new untitled Markdown doc
 3. **Browser profile quarantine** — automation never touches the real browser profile
 4. **Look before destroy** — inspect, back up, approve, then act
 5. **Reassign, not retry** — break identical failed-worker loops
-6. **Per-tool completion markers** — each agent judged by its own success signal
+6. **Completion is the exit code plus the result body** — a missing marker is never a stall
 7. **Probe before believing "can't"** — test a claimed inability once, cheaply
 8. **Pin the success marker** — one unambiguous line decides deploy success
 9. **Scrub before publishing** — deny-list review for anything public
