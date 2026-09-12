@@ -100,7 +100,7 @@ The extension contains concise, paste-ready selections from these broader free c
 
 ## Complete Agent Ops Kit
 
-For the expanded prompt, pattern, and orchestration collection, see the [Complete Agent Ops Kit](https://lifestep1.gumroad.com/l/complete-agent-ops-kit).
+For the expanded prompt, pattern, and orchestration collection, see the [Complete Agent Ops Kit](https://lifestep1.gumroad.com/l/complete-agent-ops-kit?utm_source=github&utm_medium=readme&utm_campaign=vscode-agent-ops).
 
 ## Development
 
