@@ -125,7 +125,12 @@ export function activate(context: vscode.ExtensionContext): void {
 
     vscode.commands.registerCommand("agentOps.getFullKit", async () => {
       const opened = await vscode.env.openExternal(
-        vscode.Uri.parse("https://lifestep1.gumroad.com/l/complete-agent-ops-kit")
+        vscode.Uri.parse(
+          // Keep the UTM parameters: only someone who installed the extension and ran
+          // this command can produce this click, so it is the signal worth attributing.
+          "https://lifestep1.gumroad.com/l/complete-agent-ops-kit" +
+            "?utm_source=vscode&utm_medium=extension&utm_campaign=vscode-ext-command"
+        )
       );
       if (!opened) {
         void vscode.window.showWarningMessage(

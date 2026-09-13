@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1
+
+- Corrected the completion-detection doctrine across the pattern, the review prompt, and the README.
+  The 0.2.0 pattern "Per-tool completion markers" is replaced by
+  **"Completion is the exit code plus the result body"** — a missing marker is never a stall,
+  and a marker is supplementary diagnostic evidence, not the completion signal itself.
+  The "Worker completion & stalls" review prompt keeps its name and now reflects the same rule.
+
 ## 0.2.0
 
 - Expanded adversarial review prompts from 5 to 10:

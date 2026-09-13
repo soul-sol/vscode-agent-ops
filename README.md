@@ -1,4 +1,4 @@
-# Agent Ops — Claude Code & Codex
+# Agent Ops — CLAUDE.md & AGENTS.md rules, AI review prompts
 
 Paste-ready AI code review prompts, `CLAUDE.md` / `AGENTS.md` operating rules, and task briefs for Claude Code, Codex, and other coding agents — inserted at your cursor from the Command Palette.
 
@@ -6,13 +6,19 @@ Every prompt and rule here comes from a real agent-ops failure: a worker that re
 
 ## Install
 
-Not on the Marketplace yet. Grab the `.vsix` from the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest) and install it:
+Extension ID: `lifestep.agent-ops-claude-code-codex` — search **Agent Ops** in the Extensions view, or:
+
+```
+code --install-extension lifestep.agent-ops-claude-code-codex
+```
+
+**Direct file.** The `.vsix` in the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest) installs the same build, and is the route for Cursor, Windsurf, and VSCodium:
 
 ```
 code --install-extension agent-ops-claude-code-codex-0.2.1.vsix
 ```
 
-Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file. Cursor, Windsurf, and VSCodium take the same file.
+Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file.
 
 ## What it inserts
 
