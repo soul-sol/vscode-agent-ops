@@ -6,19 +6,18 @@ Every prompt and rule here comes from a real agent-ops failure: a worker that re
 
 ## Install
 
-Extension ID: `lifestep.agent-ops-claude-code-codex` — search **Agent Ops** in the Extensions view, or:
-
-```
-code --install-extension lifestep.agent-ops-claude-code-codex
-```
-
-**Direct file.** The `.vsix` in the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest) installs the same build, and is the route for Cursor, Windsurf, and VSCodium:
+Download `agent-ops-claude-code-codex-0.2.1.vsix` from the [latest release](https://github.com/soul-sol/vscode-agent-ops/releases/latest), then:
 
 ```
 code --install-extension agent-ops-claude-code-codex-0.2.1.vsix
 ```
 
-Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file.
+Or run **Extensions: Install from VSIX...** from the Command Palette and pick the file. The same
+file is the install route for Cursor, Windsurf, and VSCodium.
+
+This extension is **not on the VS Code Marketplace or Open VSX yet**, so searching the Extensions
+view will not find it and `code --install-extension lifestep.agent-ops-claude-code-codex` will
+fail. The `.vsix` above is the only install route today.
 
 ## What it inserts
 
